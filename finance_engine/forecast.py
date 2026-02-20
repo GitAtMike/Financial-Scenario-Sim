@@ -1,15 +1,19 @@
 class ForecastEngine:
 
-    def __init__(self, savingsPriority):
+    def __init__(self, savingsPriority, annualIncomeGrowthRate):
         self.savingsPriority = savingsPriority
+        self.annualIncomeGrowthRate = annualIncomeGrowthRate
 
     def simulate(self, state, months):
         currSavings = state.getSavingsBal()
         currDebt = state.getDebtBal()
+        currIncome = state.getTotalMonthlyIncome()
+        r = self.annualIncomeGrowthRate
+        monthlyGrowthRate = (1 + r) ** (1/12) - 1
         results = []
 
         for x in range (months):
-            surplus = state.getMonthlySurplus()
+            surplus = currIncome - state.getTotalMonthlyExpense()
             if(self.savingsPriority):
                 currSavings += surplus
             monthData = {
@@ -19,5 +23,6 @@ class ForecastEngine:
                 "net_worth": currSavings - currDebt
             }
             results.append(monthData)
+            currIncome *= (1 + monthlyGrowthRate)
 
         return results
