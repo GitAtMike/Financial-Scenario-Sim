@@ -20,5 +20,11 @@ class FinancialState:
     def getTotalMonthlyIncome(self):
         return self.monthlyIncome
 
+    def getSavingsBal(self):
+        return self.savingsBal
+
+    def getDebtBal(self):
+        return self.debtBal
+
     def getMonthlySurplus(self):
         return self.getTotalMonthlyIncome() - self.getTotalMonthlyExpense()
