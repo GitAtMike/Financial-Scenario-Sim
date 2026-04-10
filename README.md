@@ -31,7 +31,7 @@ cd Financial-Scenario-Sim
 pip install -r requirements.txt
 streamlit run app/app.py
 ```
-
+```
 ## Project Structure
 Financial-Scenario-Sim/
 ├── app/
@@ -42,7 +42,7 @@ Financial-Scenario-Sim/
 │   └── simulator.py        # Scenario simulation engine
 └── tests/
 └── test_forecast.py    # Unit tests
-
+```
 ## Roadmap
 
 - [ ] Add charts to visualize savings growth and debt payoff over time
